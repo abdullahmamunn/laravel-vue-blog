@@ -1,39 +1,42 @@
 <template>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Add Category</h3>
-                    </div>
-                    <form>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="">Name</label>
-                                <input type="text" class="form-control" placeholder="Category Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <textarea class="form-control" cols="5"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="" class="col-form-label">Status</label>
-                                <div class="form-check">
-                                        <input type="checkbox" class="form-check-input">
-                                        <label class="form-check-label" for="">Active</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input">
-                                    <label class="form-check-label" for="">InActive</label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">Categories</h1>
+
+                        <div class="card-tools">
+                           <router-link to="/add-new" class="btn btn-primary">Add Category</router-link>
                         </div>
-                    </form>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Category Name</th>
+                                <th>Description</th>
+                                <th style="width: 40px">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Update software</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-danger">55%</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
                 </div>
             </div>
         </div>
@@ -42,7 +45,30 @@
 
 <script>
     export default {
-        name: "manage"
+        name: "manage",
+        data(){
+            return{
+                categories:{},
+                data:{}
+            }
+        },
+        created() {
+            // Simple GET request using fetch
+            fetch("https://api.npms.io/v2/search?q=vue")
+                .then(response => response.json())
+                .then(data => (this.totalVuePackages = data.total));
+        },
+        methods:{
+            // getCategories(){
+            //    fetch('/categories').then(function (response) {
+            //         this.categories = response.data;
+            //         // console.log(response.data)
+            //     })
+            // }
+        },
+        mounted() {
+
+        }
     }
 </script>
 

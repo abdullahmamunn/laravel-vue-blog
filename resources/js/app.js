@@ -31,11 +31,32 @@ $('.select2bs4').select2({
     theme: 'bootstrap4'
 });
 // ..........similarly other scripts comes
+//vue form validation
 import Vue from 'vue'
+import { Form, HasError, AlertError } from 'vform'
+window.Form = Form;
+Vue.component(HasError.name, HasError);
+Vue.component(AlertError.name, AlertError);
+// vue-router
 import VueRouter from 'vue-router'
 import router from './routes/routes'
-
 Vue.use(VueRouter);
+
+// Sweet Alert
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+});
+window.Toast = Toast;
 
 const app = new Vue({
     el: '#app',
