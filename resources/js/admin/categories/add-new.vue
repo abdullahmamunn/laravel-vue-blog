@@ -85,7 +85,7 @@
                         "hideEasing": "linear",
                         "showMethod": "fadeIn",
                         "hideMethod": "fadeOut"
-                    }
+                    };
                     this.form.clear()
                 })
             }
