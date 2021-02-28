@@ -23,15 +23,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Update software</td>
+                            <tr v-for="(category,i) in getResult">
+                                <td>{{++i}}</td>
+                                <td>{{category.name}}</td>
                                 <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
+                                    {{category.description}}
                                 </td>
-                                <td><span class="badge bg-danger">55%</span></td>
+                                <td>{{category.status}}<span class="badge bg-danger"></span></td>
                             </tr>
                             </tbody>
                         </table>
@@ -46,29 +44,14 @@
 <script>
     export default {
         name: "manage",
-        data(){
-            return{
-                categories:{},
-                data:{}
-            }
-        },
-        created() {
-            // Simple GET request using fetch
-            fetch("https://api.npms.io/v2/search?q=vue")
-                .then(response => response.json())
-                .then(data => (this.totalVuePackages = data.total));
-        },
-        methods:{
-            // getCategories(){
-            //    fetch('/categories').then(function (response) {
-            //         this.categories = response.data;
-            //         // console.log(response.data)
-            //     })
-            // }
-        },
         mounted() {
-
-        }
+            this.$store.dispatch('getData')
+        },
+        computed:{
+           getResult(){
+               return this.$store.getters.getCategories
+           }
+        },
     }
 </script>
 

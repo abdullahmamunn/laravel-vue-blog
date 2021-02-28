@@ -8,7 +8,7 @@ import addNew from "../admin/categories/add-new";
 Vue.use(VueRouter);
 export const routes = [
     { path: '/home', component: dashboard },
-    { path: '/categories', component: categories },
+    { path: '/categories', component: categories, name: 'categories' },
     { path: '/add-new', component: addNew }
 ];
 const router = new VueRouter({

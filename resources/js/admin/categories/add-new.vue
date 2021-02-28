@@ -45,6 +45,8 @@
 </template>
 
 <script>
+    import categories from "./manage";
+
     const Swal = require('sweetalert2')
     export default {
         name: "add-new",
@@ -59,12 +61,32 @@
         },
         methods:{
             submit(){
+                let router = this
                 this.form.post('/add-category').then(function (data) {
-                    console.log(data);
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Signed in successfully'
-                    })
+                    // router.$router.push({name: 'categories'});
+                    router.$router.push('/categories');
+                    // Toast.fire({
+                    //     icon: 'success',
+                    //     title: 'Category Added successfully'
+                    // })
+                    Command: toastr["success"]("Category Added", "Success")
+                    toastr.options = {
+                        "closeButton": true,
+                        "debug": true,
+                        "newestOnTop": true,
+                        "progressBar": true,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    this.form.clear()
                 })
             }
 

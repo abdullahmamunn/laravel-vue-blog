@@ -58,7 +58,21 @@ const Toast = Swal.mixin({
 });
 window.Toast = Toast;
 
+// Toastr js
+import toastr from 'toastr'
+window.toastr = toastr;
+
+//Vuex
+import Vuex from 'vuex'
+Vue.use(Vuex);
+import storeData from './store/store.js'
+const store = new Vuex.Store(
+    storeData
+);
+
+
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });
