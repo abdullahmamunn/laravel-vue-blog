@@ -2,7 +2,7 @@
 export default {
 
     state:{
-        categories: []
+        categories: {}
     },
     getters:{
         getCategories(state){

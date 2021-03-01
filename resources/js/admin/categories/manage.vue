@@ -15,6 +15,7 @@
                             <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
+                                <th>id</th>
                                 <th>Category Name</th>
                                 <th>Created at</th>
                                 <th style="width: 50px">Status</th>
@@ -22,8 +23,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(category,i) in getResult">
+                            <tr v-for="(category,i) in categories.data" :key="category.id">
                                 <td>{{++i}}</td>
+                                <td>{{category.id}}</td>
                                 <td>{{category.name}}</td>
                                 <td>
                                     {{category.created_at | time}}
@@ -32,8 +34,9 @@
 <!--                                <td v-if="category.status != 0"><span class="badge bg-success">Active</span></td>-->
 <!--                                <td v-else><span class="badge bg-danger">InActive</span></td>-->
                                 <td>
-                                    <button class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button>
-                                    <router-link to="/edit-category" class="btn btn-success">Edit</router-link>
+                                    <button class="btn btn-danger btn-sm" @click="deleteCategory(category.id)">Delete</button>
+<!--                                    <router-link :to="`edit-category`" class="btn btn-success">Edit</router-link>-->
+                                    <router-link :to="{name:'categoryEdit',params:{id: category}}" class="btn btn-success btn-sm">Edit</router-link>
                                 </td>
                             </tr>
                             <tr v-if="tableEmpty()">
@@ -41,8 +44,13 @@
                             </tr>
                             </tbody>
                         </table>
+
                     </div>
                     <!-- /.card-body -->
+                    <pagination
+                        :data="categories"
+                        @pagination-change-page="getResults" align="center">
+                    </pagination>
                 </div>
             </div>
         </div>
@@ -52,14 +60,23 @@
 <script>
     export default {
         name: "manage",
+        data() {
+            return {
+                // Our data object that holds the Laravel paginator data
+                categories: {},
+            }
+        },
+
         mounted() {
-            this.$store.dispatch('getData')
+            // Fetch initial results
+            // this.$store.dispatch('getData');
+            this.getResults();
         },
-        computed:{
-           getResult(){
-               return this.$store.getters.getCategories
-           }
-        },
+        // computed:{
+        //    getResult(){
+        //        return this.$store.getters.getCategories
+        //    }
+        // },
         methods:{
             categoryStatus(status){
                let data = {
@@ -77,20 +94,29 @@
             },
             deleteCategory(id){
                 axios.get('category-delete/' + id).then((response) =>{
-                    this.$store.dispatch('getData');
+                    // this.$store.dispatch('getData');
+                    this.getResults();
                     toastr.success('Category Deleted Success');
                 })
             },
             tableEmpty(){
-               if (this.getResult.length < 1){
-                   return true;
-               }
-               else{
-                   return false;
-               }
-            }
+                if(this.categories.data.length < 1)
+                {
+                    return true;
+                }else{
+                    return false;
+                }
 
+            },
+            getResults(page = 1) {
+                axios.get('/categories?page=' + page)
+                    .then(response => {
+                        toastr.success('welcome to '+page+' page');
+                        this.categories = response.data;
+                    });
+            }
         }
+
     }
 </script>
 

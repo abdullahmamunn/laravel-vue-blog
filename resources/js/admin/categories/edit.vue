@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Edit Category</h3>
+                        <h3 class="card-title">Edit Category{{this.$route.params.id}}</h3>
                     </div>
                     <form @submit.prevent="submit()">
                         <div class="card-body">

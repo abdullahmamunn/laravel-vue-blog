@@ -75,7 +75,9 @@ Vue.filter('time', function (value) {
  // return moment(value).startOf('hour').fromNow();
  //    return moment(value).endOf('day').fromNow();
     return moment(value).format('MMM Do YYYY, h:mm:ss a');
-})
+});
+// pagination
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 const app = new Vue({
     el: '#app',

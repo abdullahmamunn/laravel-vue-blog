@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        return response()->json(['categories'=>$categories],200);
+//        return Category::paginate(3);
+        return Category::latest()->paginate(3);
+//        return response()->json(['categories'=>$categories],200);
     }
 
     public function store(Request $request)
@@ -23,7 +25,7 @@ class CategoryController extends Controller
         ]);
       Category::create([
         'name' => $request->name,
-        'slug' => $request->name,
+        'slug' => Str::slug($request->name,'-'),
         'description' => $request->description,
         'status' => $request->status,
       ]);

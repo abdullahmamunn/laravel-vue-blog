@@ -11,7 +11,7 @@ export const routes = [
     { path: '/home', component: dashboard },
     { path: '/categories', component: categories, name: 'categories' },
     { path: '/add-new', component: addNew },
-    { path: '/edit-category', component: editCategory}
+    { path: '/edit-category/:id', component: editCategory, name: 'categoryEdit'}
 ];
 const router = new VueRouter({
     routes: routes,
