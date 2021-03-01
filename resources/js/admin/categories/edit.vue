@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Edit Category{{this.$route.params.id}}</h3>
                     </div>
-                    <form @submit.prevent="submit()">
+                    <form @submit.prevent="updateCategory()">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Name</label>
@@ -45,7 +45,6 @@
 </template>
 
 <script>
-    import categories from "./manage";
 
     const Swal = require('sweetalert2')
     export default {
@@ -56,43 +55,32 @@
                     name: null,
                     description: null,
                     status: null,
-                })
+                }),
             }
         },
         methods:{
-            submit(){
-                let router = this
-                this.form.post('/add-category').then(function (data) {
-                    // router.$router.push({name: 'categories'});
-                    router.$router.push('/categories');
-                    // Toast.fire({
-                    //     icon: 'success',
-                    //     title: 'Category Added successfully'
-                    // })
-                    Command: toastr["success"]("Category Added", "Success")
-                    toastr.options = {
-                        "closeButton": true,
-                        "debug": true,
-                        "newestOnTop": true,
-                        "progressBar": true,
-                        "positionClass": "toast-top-right",
-                        "preventDuplicates": true,
-                        "showDuration": "300",
-                        "hideDuration": "1000",
-                        "timeOut": "5000",
-                        "extendedTimeOut": "1000",
-                        "showEasing": "swing",
-                        "hideEasing": "linear",
-                        "showMethod": "fadeIn",
-                        "hideMethod": "fadeOut"
-                    };
-                    this.form.clear()
+            updateCategory(){
+                let _this = this
+                this.form.post('/update-category/'+this.$route.params.id).then(function (response) {
+                    console.log(response.data);
+                    _this.$router.push({name:'categories'})
+                    toastr.success("Category Updated Successfully")
+                }).catch(function (error) {
+                    console.log(error)
+                })
+            },
+            getCategory(){
+               const _this = this;
+                axios.get('/get-category/'+this.$route.params.id).then(function (response) {
+                    _this.form.fill(response.data);
+                    // console.log(response.data);
+                }).catch(function (error) {
+                    console.log(error)
                 })
             }
-
         },
         mounted() {
-
+          this.getCategory()
         }
     }
 </script>

@@ -36,7 +36,7 @@
                                 <td>
                                     <button class="btn btn-danger btn-sm" @click="deleteCategory(category.id)">Delete</button>
 <!--                                    <router-link :to="`edit-category`" class="btn btn-success">Edit</router-link>-->
-                                    <router-link :to="{name:'categoryEdit',params:{id: category}}" class="btn btn-success btn-sm">Edit</router-link>
+                                    <router-link :to="{name:'categoryEdit',params:{id: category.id}}" class="btn btn-success btn-sm">Edit</router-link>
                                 </td>
                             </tr>
                             <tr v-if="tableEmpty()">
