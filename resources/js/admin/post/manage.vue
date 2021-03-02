@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h1 class="card-title">Manage Posts</h1>
                         <div class="card-tools">
-                           <router-link to="/add-new" class="btn btn-primary">Add new post</router-link>
+                           <router-link to="/create-post" class="btn btn-primary">Add new post</router-link>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -32,18 +32,20 @@
                                 <td>{{post.category.name}}</td>
                                 <td>{{post.title | subString(10)}}...</td>
                                 <td>{{post.content | subString(10)}}...</td>
-                                <td>{{post.content | subString(10)}}...</td>
+                                <td>
+                                    <img :src="post.thumbnail" width="60" alt="">
+                                </td>
                                 <td>{{post.user.name}}</td>
                                 <td>
                                     <span class="badge" :class="statusColor(post.status)">{{post.status | capitalize}}</span>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger btn-sm" @click="deleteCategory(post.id)">Delete</button>
+                                    <button class="btn btn-danger btn-sm" @click="deletePost(post.id)">Delete</button>
                                     <router-link :to="{name:'postEdit',params:{id: post.id}}" class="btn btn-success btn-sm">Edit</router-link>
                                 </td>
                             </tr>
                             <tr v-if="tableEmpty()">
-                               <td colspan="6"> <h4 class="text-center text-danger">Data not found</h4></td>
+                               <td colspan="9"> <h4 class="text-center text-danger">Data not found</h4></td>
                             </tr>
                             </tbody>
                         </table>
@@ -88,11 +90,12 @@
                 };
                 return data[status];
             },
-            deleteCategory(id){
-                axios.get('category-delete/' + id).then((response) =>{
-                    // this.$store.dispatch('getData');
+            deletePost(id){
+                toastr.success(id);
+                axios.get('post-delete/' + id).then((response) =>{
+                    // console.log(response.data)
                     this.getResults();
-                    toastr.success('Category Deleted Success');
+                    toastr.success('Post Deleted Successfully');
                 })
             },
             tableEmpty(){
@@ -107,7 +110,7 @@
             getResults(page = 1) {
                 axios.get('/posts?page=' + page)
                     .then(response => {
-                        toastr.success('welcome to '+page+' page');
+                        // toastr.success('welcome to '+page+' page');
                         this.posts = response.data;
                     });
             }

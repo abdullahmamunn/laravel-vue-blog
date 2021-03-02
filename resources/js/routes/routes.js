@@ -8,7 +8,7 @@ import addNew from "../admin/categories/add-new";
 import editCategory from "../admin/categories/edit";
 //Post
 import posts from "../admin/post/manage";
-import addNewPost from "../admin/post/add-new";
+import createPost from "../admin/post/add-new";
 import editPost from "../admin/post/edit";
 
 Vue.use(VueRouter);
@@ -19,7 +19,7 @@ export const routes = [
     { path: '/edit-category/:id', component: editCategory, name: 'categoryEdit'},
 
     { path: '/posts', component: posts, name: 'posts' },
-    { path: '/addNewPost', component: addNewPost },
+    { path: '/create-post', component: createPost },
     { path: '/editPost/:id', component: editPost, name: 'postEdit'}
 
 ];

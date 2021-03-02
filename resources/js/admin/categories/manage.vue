@@ -50,7 +50,7 @@
                                 </td>
                             </tr>
                             <tr v-if="tableEmpty()">
-                               <td colspan="6"> <h4 class="text-center text-danger">Data not found</h4></td>
+                               <td colspan="9"> <h4 class="text-center text-danger">Data not found</h4></td>
                             </tr>
                             </tbody>
                         </table>

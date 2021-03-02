@@ -11,15 +11,17 @@ export default {
     },
     actions:{
         getData(data){
-           axios.get('categories').then(function (response) {
-                // console.log(response.data.categories)
-               // this.categories = response.data.categories
-               data.commit("categories",response.data.categories)
+            let this_ = this;
+           axios.get('/get-categories').then(function (response) {
+                // console.log(response.data)
+               // this_.categories = response.data.categories;
+               data.commit("categories",response.data)
            })
         }
     },
     mutations:{
         categories(state, data){
+            // console.log(data);
             return state.categories = data;
         }
     }

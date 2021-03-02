@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5fc1692d-7cda-45a5-8f69-5419622882a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/categories/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/categories/edit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin/categories/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/categories/manage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/post/add-new.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/post/add-new.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/side-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/side-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +224,8 @@
       <workItem from="1614577299046" duration="5937000" />
       <workItem from="1614584534911" duration="3995000" />
       <workItem from="1614618905363" duration="5940000" />
-      <workItem from="1614658759505" duration="6486000" />
+      <workItem from="1614658759505" duration="6657000" />
+      <workItem from="1614672503616" duration="7559000" />
     </task>
     <servers />
   </component>
@@ -241,9 +241,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="207" y="15" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1614537288992" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1614665932354">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1614677235543">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1614665932354" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1614677235543" />
   </component>
 </project>

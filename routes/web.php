@@ -31,3 +31,5 @@ Route::get('/category-delete/{id}','Admin\CategoryController@destroy');
 
 //Posts
 Route::get('/posts','Admin\PostController@index');
+Route::get('/get-categories','Admin\PostController@showCategories');
+Route::get('/post-delete/{id}','Admin\PostController@destroy');

@@ -4,20 +4,32 @@
             <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Add Category</h3>
+                        <h3 class="card-title">Create New Post</h3>
                     </div>
                     <form @submit.prevent="submit()">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Category Name" v-model="form.name" name="name" :class="{ 'is-invalid': form.errors.has('name') }">
-                                <has-error :form="form" field="name"></has-error>
+                                <label>Title</label>
+                                <input type="text" class="form-control" placeholder="Post title" v-model="form.title" name="title" :class="{ 'is-invalid': form.errors.has('title') }">
+                                <has-error :form="form" field="title"></has-error>
                             </div>
                             <div class="form-group">
-                                <label >Description</label>
+                                <label>Select Category</label>
+                                <select name="category" id="" class="form-control">
+                                    <option value="">Select one</option>
+                                    <option v-for="category in showCategory" :value="category.id">{{category.name}}</option>
+                                </select>
+                                <has-error :form="form" field="title"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <label >Content</label>
                                 <textarea class="form-control" cols="5" placeholder="Description" v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }">
                                 </textarea>
                                 <has-error :form="form" field="description"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Thumbnail</label>
+                                <input type="file">
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label mr-3">Status</label>
@@ -39,6 +51,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -56,7 +69,16 @@
                     name: null,
                     description: null,
                     status: null,
-                })
+                }),
+            }
+        },
+        mounted() {
+            this.$store.dispatch('getData');
+        },
+        computed:{
+            showCategory()
+            {
+                return this.$store.getters.getCategories
             }
         },
         methods:{
@@ -88,12 +110,9 @@
                     };
                     this.form.clear()
                 })
-            }
-
+            },
         },
-        mounted() {
 
-        }
     }
 </script>
 
