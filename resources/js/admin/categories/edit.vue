@@ -60,7 +60,7 @@
         },
         methods:{
             updateCategory(){
-                let _this = this
+                let _this = this;
                 this.form.post('/update-category/'+this.$route.params.id).then(function (response) {
                     console.log(response.data);
                     _this.$router.push({name:'categories'})

@@ -69,13 +69,8 @@ import storeData from './store/store.js'
 const store = new Vuex.Store(
     storeData
 );
-// moment js
-import moment from "moment";
-Vue.filter('time', function (value) {
- // return moment(value).startOf('hour').fromNow();
- //    return moment(value).endOf('day').fromNow();
-    return moment(value).format('MMM Do YYYY, h:mm:ss a');
-});
+import {moment} from './filter/filter';
+
 // pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 

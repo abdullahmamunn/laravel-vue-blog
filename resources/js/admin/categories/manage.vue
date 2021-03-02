@@ -14,19 +14,29 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th style="width: 10px">#</th>
+                                <th>
+                                    <input type="checkbox">
+                                </th>
+                                <th style="width: 10px">SL</th>
                                 <th>id</th>
-                                <th>Category Name</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Description</th>
                                 <th>Created at</th>
                                 <th style="width: 50px">Status</th>
-                                <th>Action</th>
+                                <th style="width: 136px">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr v-for="(category,i) in categories.data" :key="category.id">
+                                <th style="width: 10px">
+                                    <input type="checkbox" class="">
+                                </th>
                                 <td>{{++i}}</td>
                                 <td>{{category.id}}</td>
                                 <td>{{category.name}}</td>
+                                <td>{{category.slug}}</td>
+                                <td>{{category.description | subString(10)}}...</td>
                                 <td>
                                     {{category.created_at | time}}
                                 </td>
@@ -47,11 +57,11 @@
 
                     </div>
                     <!-- /.card-body -->
-                    <pagination
-                        :data="categories"
-                        @pagination-change-page="getResults" align="center">
-                    </pagination>
                 </div>
+                <pagination
+                    :data="categories"
+                    @pagination-change-page="getResults" align="center">
+                </pagination>
             </div>
         </div>
     </div>
