@@ -65,4 +65,18 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
     }
+
+    public function deleteAllItems(Request $request)
+    {
+//        return $request->data;
+        $sl = 0;
+        foreach ($request->data as $id)
+        {
+            $category = Category::find($id);
+            $category->delete();
+            $sl++;
+        }
+        $success = $sl > 0 ? true: false;
+        return response()->json(['message'=>$success, 'total_deleted'=>$sl],200);
+    }
 }

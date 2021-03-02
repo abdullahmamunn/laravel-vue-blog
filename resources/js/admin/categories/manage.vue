@@ -15,7 +15,7 @@
                             <thead>
                             <tr>
                                 <th>
-                                    <input type="checkbox">
+                                    <input :disabled="tableEmpty()" type="checkbox" @click="selectAll" v-model="selectedAll">
                                 </th>
                                 <th style="width: 10px">SL</th>
                                 <th>id</th>
@@ -30,7 +30,7 @@
                             <tbody>
                             <tr v-for="(category,i) in categories.data" :key="category.id">
                                 <th style="width: 10px">
-                                    <input type="checkbox" class="">
+                                    <input type="checkbox" :value="category.id" v-model="selected">
                                 </th>
                                 <td>{{++i}}</td>
                                 <td>{{category.id}}</td>
@@ -41,17 +41,15 @@
                                     {{category.created_at | time}}
                                 </td>
                                 <td><span class="badge" :class="statusColor(category.status)">{{categoryStatus(category.status)}}</span></td>
-<!--                                <td v-if="category.status != 0"><span class="badge bg-success">Active</span></td>-->
-<!--                                <td v-else><span class="badge bg-danger">InActive</span></td>-->
                                 <td>
                                     <button class="btn btn-danger btn-sm" @click="deleteCategory(category.id)">Delete</button>
-<!--                                    <router-link :to="`edit-category`" class="btn btn-success">Edit</router-link>-->
                                     <router-link :to="{name:'categoryEdit',params:{id: category.id}}" class="btn btn-success btn-sm">Edit</router-link>
                                 </td>
                             </tr>
                             <tr v-if="tableEmpty()">
                                <td colspan="9"> <h4 class="text-center text-danger">Data not found</h4></td>
                             </tr>
+                            <button v-if="!tableEmpty()" :disabled="!isSelected" @click="deleteALLItems" class="btn btn-danger btn-sm mx-3"><i class="fa fa-trash" aria-hidden="true"></i></button>
                             </tbody>
                         </table>
 
@@ -74,6 +72,9 @@
             return {
                 // Our data object that holds the Laravel paginator data
                 categories: {},
+                selected:[],
+                selectedAll: false,
+                isSelected: false
             }
         },
 
@@ -81,6 +82,19 @@
             // Fetch initial results
             // this.$store.dispatch('getData');
             this.getResults();
+        },
+        watch:{
+            selected(){
+                let _this = this;
+                _this.isSelected = (_this.selected.length>0);
+                if (_this.selected.length === _this.categories.data.length)
+                {
+                    _this.selectedAll = true
+                }
+                else {
+                    _this.selectedAll = false
+                }
+             }
         },
         // computed:{
         //    getResult(){
@@ -118,12 +132,34 @@
                 }
 
             },
+            selectAll(event){
+              if (event.target.checked === false){
+                  this.selected = [];
+              }
+             else{
+                 let _this = this;
+                 this.categories.data.forEach(function (category) {
+                     _this.selected.push(category.id);
+                     // console.log(category.id)
+                 })
+              }
+            },
             getResults(page = 1) {
                 axios.get('/categories?page=' + page)
                     .then(response => {
                         toastr.success('welcome to '+page+' page');
                         this.categories = response.data;
                     });
+            },
+            deleteALLItems(){
+                let _this = this;
+                axios.post('/delete/all',{data:_this.selected}).then(function (response) {
+                    console.log(response.data)
+                    _this.getResults()
+                }).catch(function (err) {
+                    console.log(err)
+                });
+
             }
         }
 
