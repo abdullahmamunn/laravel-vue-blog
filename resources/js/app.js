@@ -70,7 +70,7 @@ const store = new Vuex.Store(
     storeData
 );
 import {moment} from './filter/filter';
-
+import './helpers/mixin';
 // pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 

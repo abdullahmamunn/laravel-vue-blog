@@ -49,7 +49,19 @@
                             <tr v-if="tableEmpty()">
                                <td colspan="9"> <h4 class="text-center text-danger">Data not found</h4></td>
                             </tr>
-                            <button v-if="!tableEmpty()" :disabled="!isSelected" @click="deleteALLItems" class="btn btn-danger btn-sm mx-3"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <tr>
+                                    <div class="dropdown custom-dropdown">
+                                        <button v-if="!tableEmpty()" :disabled="!isSelected"  class="btn btn-danger btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <button class="dropdown-item" @click="deleteAllItems">Delete Selected Items</button>
+                                            <button class="dropdown-item" @click="statusChange(selected,1)">Active Selected Items</button>
+                                            <button class="dropdown-item" @click="statusChange(selected,0)">InActive Selected Items</button>
+                                        </div>
+                                    </div>
+                            </tr>
+<!--                            <button v-if="!tableEmpty()" :disabled="!isSelected" @click="deleteALLItems" class="btn btn-danger btn-sm mx-3"><i class="fa fa-trash" aria-hidden="true"></i></button>-->
                             </tbody>
                         </table>
 
@@ -82,12 +94,13 @@
             // Fetch initial results
             // this.$store.dispatch('getData');
             this.getResults();
+            this.test();
         },
         watch:{
             selected(){
                 let _this = this;
                 _this.isSelected = (_this.selected.length>0);
-                if (_this.selected.length === _this.categories.data.length)
+                if (_this.selected.data.length === _this.categories.data.length)
                 {
                     _this.selectedAll = true
                 }
@@ -117,11 +130,18 @@
                 return data[status];
             },
             deleteCategory(id){
-                axios.get('category-delete/' + id).then((response) =>{
-                    // this.$store.dispatch('getData');
-                    this.getResults();
-                    toastr.success('Category Deleted Success');
+                this.isConfirm(()=>{
+                    axios.get('category-delete/' + id).then((response) =>{
+                        // this.$store.dispatch('getData');
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        this.getResults();
+                    })
                 })
+
             },
             tableEmpty(){
                 if(this.categories.data.length < 1)
@@ -147,19 +167,45 @@
             getResults(page = 1) {
                 axios.get('/categories?page=' + page)
                     .then(response => {
-                        toastr.success('welcome to '+page+' page');
+                        // toastr.success('welcome to '+page+' page');
                         this.categories = response.data;
                     });
             },
-            deleteALLItems(){
+            deleteAllItems(){
+                    let _this = this;
+                    this.isConfirm(()=>{
+                    axios.post('category/delete/all',{data:_this.selected}).then(function (response) {
+                        console.log(response.data)
+                            _this.selected = [];
+                            _this.selectedAll = false;
+                            _this.isSelected = false;
+                            _this.getResults()
+                            toastr.success(response.data.total_deleted+' Category deleted')
+                    }).catch(function (err) {
+                        console.log(err)
+                    });
+                })
+            },
+            statusChange(selected,status)
+            {
+
+                if(status === 1) {
+                    var msg = 'Activate';
+                }else {
+                    var msg = 'Inactive';
+                }
                 let _this = this;
-                axios.post('/delete/all',{data:_this.selected}).then(function (response) {
-                    console.log(response.data)
+                axios.post('/category/status-change',{data:selected, status: status}).then(function (response) {
+                    _this.selected = [];
+                    _this.selectedAll = false;
+                    _this.isSelected = false;
                     _this.getResults()
+                    // console.log(response.data)
+                    toastr.success(response.data.total+" category status "+msg)
                 }).catch(function (err) {
                     console.log(err)
                 });
-
+                // console.log(selected)
             }
         }
 
@@ -167,5 +213,15 @@
 </script>
 
 <style scoped>
-
+    .custom-dropdown{
+        margin-left: 12px;
+        padding-bottom: 7px;
+    }
+    .custom-dropdown-menu{
+        position: absolute!important;
+        will-change: transform!important;
+        top: 6px!important;
+        left: -15px!important;
+        transform: translate3d(0px, 28px, 0px)!important;
+    }
 </style>

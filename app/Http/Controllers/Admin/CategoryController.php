@@ -79,4 +79,19 @@ class CategoryController extends Controller
         $success = $sl > 0 ? true: false;
         return response()->json(['message'=>$success, 'total_deleted'=>$sl],200);
     }
+
+    public function statusChange(Request $request)
+    {
+//        return $request->status;
+        $sl = 0;
+        foreach ($request->data as $id)
+        {
+            $category = Category::find($id);
+            $category->status = $request->status;
+            $category->save();
+            $sl++;
+        }
+        $success = $sl > 0 ? true: false;
+        return response()->json(['message'=>$success, 'total'=>$sl],200);
+    }
 }

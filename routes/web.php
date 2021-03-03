@@ -28,7 +28,8 @@ Route::get('/categories','Admin\CategoryController@index');
 Route::get('/get-category/{id}','Admin\CategoryController@show');
 Route::post('/update-category/{id}','Admin\CategoryController@update');
 Route::get('/category-delete/{id}','Admin\CategoryController@destroy');
-Route::post('/delete/all','Admin\CategoryController@deleteAllItems');
+Route::post('/category/delete/all','Admin\CategoryController@deleteAllItems');
+Route::post('/category/status-change','Admin\CategoryController@statusChange');
 
 //Posts
 Route::get('/posts','Admin\PostController@index');
