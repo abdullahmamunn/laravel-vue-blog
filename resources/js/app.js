@@ -69,10 +69,16 @@ import storeData from './store/store.js'
 const store = new Vuex.Store(
     storeData
 );
+// user vue filter
 import {moment} from './filter/filter';
+
+// use vue mixin
 import './helpers/mixin';
 // pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
+// vue ckEditor
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+Vue.use( CKEditor );
 
 const app = new Vue({
     el: '#app',

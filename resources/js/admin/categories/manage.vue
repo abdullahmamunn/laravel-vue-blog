@@ -50,18 +50,17 @@
                                <td colspan="9"> <h4 class="text-center text-danger">Data not found</h4></td>
                             </tr>
                             <tr>
-                                    <div class="dropdown custom-dropdown">
-                                        <button v-if="!tableEmpty()" :disabled="!isSelected"  class="btn btn-danger btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </button>
-                                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <button class="dropdown-item" @click="deleteAllItems">Delete Selected Items</button>
-                                            <button class="dropdown-item" @click="statusChange(selected,1)">Active Selected Items</button>
-                                            <button class="dropdown-item" @click="statusChange(selected,0)">InActive Selected Items</button>
-                                        </div>
+                                <div class="dropdown custom-dropdown">
+                                    <button v-if="!tableEmpty()" :disabled="!isSelected"  class="btn btn-danger btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-bars" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <button class="dropdown-item" @click="deleteAllItems">Delete Selected Items</button>
+                                        <button class="dropdown-item" @click="statusChange(selected,1)">Active Selected Items</button>
+                                        <button class="dropdown-item" @click="statusChange(selected,0)">InActive Selected Items</button>
                                     </div>
+                                </div>
                             </tr>
-<!--                            <button v-if="!tableEmpty()" :disabled="!isSelected" @click="deleteALLItems" class="btn btn-danger btn-sm mx-3"><i class="fa fa-trash" aria-hidden="true"></i></button>-->
                             </tbody>
                         </table>
 
@@ -186,14 +185,14 @@
                     });
                 })
             },
-            statusChange(selected,status)
-            {
+            statusChange(selected,status) {
 
-                if(status === 1) {
-                    var msg = 'Activate';
-                }else {
-                    var msg = 'Inactive';
-                }
+                // if(status === 1) {
+                //     var msg = 'Activate';
+                // }else {
+                //     var msg = 'Inactive';
+                // }
+                let msg = status === 1 ? 'Activated' : 'Deactivated';
                 let _this = this;
                 axios.post('/category/status-change',{data:selected, status: status}).then(function (response) {
                     _this.selected = [];

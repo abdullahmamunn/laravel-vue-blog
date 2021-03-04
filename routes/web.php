@@ -34,4 +34,7 @@ Route::post('/category/status-change','Admin\CategoryController@statusChange');
 //Posts
 Route::get('/posts','Admin\PostController@index');
 Route::get('/get-categories','Admin\PostController@showCategories');
+Route::post('/create-post','Admin\PostController@store');
 Route::get('/post-delete/{id}','Admin\PostController@destroy');
+Route::post('/post/delete/all','Admin\PostController@deleteAllPosts');
+Route::post('/posts/status-change','Admin\PostController@statusChange');
