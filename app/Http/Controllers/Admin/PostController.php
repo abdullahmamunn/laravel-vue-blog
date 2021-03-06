@@ -44,7 +44,7 @@ class PostController extends Controller
 
         Post::create([
             'category_id'=>$request->category_id,
-            'content' => $request->description,
+            'description' => $request->description,
             'user_id'=>Auth()->user()->id,
             'status' => $request->status,
             'title' => $request->title,
@@ -56,6 +56,40 @@ class PostController extends Controller
 
         return response()->json(['message'=>'Post created'],200);
 
+    }
+    public function show($id)
+    {
+        $posts = Post::find($id);
+        if ($posts){
+            return response()->json($posts,200);
+        }
+        else{
+            return response()->json($posts,404);
+        }
+
+    }
+
+    public function update(Request $request, $id)
+    {
+//         dd($request->all());
+         $post = Post::find($id);
+         $post->category_id     = $request->category_id;
+         $post->description     = $request->description;
+         $post->status          = $request->status;
+         $post->title           = $request->title;
+
+        if($post->thumbnail != $request->thumbnail)
+        {
+            $x = explode(';',$request->thumbnail);
+            $xx = explode('/',$x[0]);
+            $img_ex = end($xx);
+            $slug = Str::slug($request->title);
+            $image_name = $slug.'.'.$img_ex;
+            $post->thumbnail = $image_name;
+            Image::make($request->thumbnail)->resize(700, 250)->save(public_path('uploads/posts/') . $image_name);
+        }
+        $post->save();
+         return response()->json(['message'=>'Post updated'],200);
     }
 
     public function destroy($id)

@@ -35,11 +35,12 @@
                                 </td>
                                 <td>{{++i}}</td>
                                 <td>{{post.id}}</td>
-                                <td>{{post.category.name}}</td>
+                                <td v-if="post.category.name === null">''</td>
+                                <td v-else>{{post.category.name}}</td>
                                 <td>{{post.title | subString(10)}}...</td>
-                                <td>{{post.content | subString(10)}}...</td>
+                                <td>{{post.description | subString(10)}}...</td>
                                 <td>
-                                    <img :src="imageLink(post.thumbnail)" height="50" alt="title-image">
+                                    <img :src="imageUrl(post.thumbnail)" height="50" alt="title-image">
                                 </td>
                                 <td>{{post.user.name}}</td>
                                 <td>
@@ -192,9 +193,7 @@
                 });
                 // console.log(selected)
             },
-            imageLink(image){
-                return 'uploads/posts/' + image;
-            }
+
         }
 
     }

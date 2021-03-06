@@ -13,6 +13,17 @@ Vue.mixin({
             }).then((result)=>{
                 if(result.value) callback();
             })
+        },
+        imageUrl(url){
+            if(url!=null && url.length> 255)
+            {
+                console.log(url.length)
+                return this.form.thumbnail;
+            }
+            else{
+                return 'uploads/posts/' + url;
+            }
+
         }
     }
 })
