@@ -5,7 +5,7 @@ import moment from "moment";
 Vue.filter('time', function (value) {
     // return moment(value).startOf('hour').fromNow();
     //    return moment(value).endOf('day').fromNow();
-    return moment(value).format('Do-MMM-YY');
+    return moment(value).format('MMMM Do YYYY, h:mm:ss a');
 });
 
 Vue.filter('subString', function (value, length) {

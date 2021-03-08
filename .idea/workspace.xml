@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5fc1692d-7cda-45a5-8f69-5419622882a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_27_071013_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_071013_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PostTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/posts/laravel-vue-js.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/posts/laravel-vue.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/posts/voluptate-exercitati.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/post/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/post/edit.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/helpers/mixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/helpers/mixin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/filter/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/filter/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +41,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Blade" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -170,18 +167,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\vue\laravel-vue-blog\app\Http\Controllers\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\vue\laravel-vue-blog\routes" />
       <recent name="F:\vue\laravel-vue-blog\resources\js\admin" />
       <recent name="F:\vue\laravel-vue-blog\resources\js\admin\categories" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\vue\laravel-vue-blog\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -236,7 +234,9 @@
       <workItem from="1614742882934" duration="9813000" />
       <workItem from="1614761588659" duration="12294000" />
       <workItem from="1614817331042" duration="5672000" />
-      <workItem from="1614996936598" duration="13505000" />
+      <workItem from="1614996936598" duration="14703000" />
+      <workItem from="1615139256659" duration="4904000" />
+      <workItem from="1615166970854" duration="10890000" />
     </task>
     <servers />
   </component>
@@ -252,9 +252,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="207" y="15" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1614537288992" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1615014867143">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1615175805744">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1615014867143" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1615175805744" />
   </component>
 </project>
