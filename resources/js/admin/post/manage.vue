@@ -35,8 +35,8 @@
                                 </td>
                                 <td>{{++i}}</td>
                                 <td>{{post.id}}</td>
-                                <td v-if="post.category.name === null">''</td>
-                                <td v-else>{{post.category.name}}</td>
+                                <td v-if="post.category != null">{{post.category.name}}</td>
+                                <td v-else class="text-danger">Not available</td>
                                 <td>{{post.title | subString(10)}}...</td>
                                 <td>{{post.description | subString(10)}}...</td>
                                 <td>
@@ -136,7 +136,7 @@
 
             },
             tableEmpty(){
-                if(this.posts.data.length < 1)
+                if(this.posts.length < 1)
                 {
                     return true;
                 }else{

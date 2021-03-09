@@ -93,7 +93,6 @@
             // Fetch initial results
             // this.$store.dispatch('getData');
             this.getResults();
-            this.test();
         },
         watch:{
             selected(){
@@ -143,7 +142,7 @@
 
             },
             tableEmpty(){
-                if(this.categories.data.length < 1)
+                if(this.categories.length < 1)
                 {
                     return true;
                 }else{
