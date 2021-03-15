@@ -5,6 +5,7 @@ import home from "../site/home";
 import about from "../site/about";
 import services from "../site/services";
 import contact from "../site/contact";
+import categoryView from "../site/category-view";
 
 Vue.use(VueRouter);
 export const routes = [
@@ -12,6 +13,7 @@ export const routes = [
     { path: '/about', component: about },
     { path: '/services', component: services },
     { path: '/contact', component: contact },
+    { path: '/category-view/:id', component: categoryView, name:'categoryShow' },
 
 
 ];

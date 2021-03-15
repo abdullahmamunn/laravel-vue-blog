@@ -5,7 +5,7 @@
             <small>All Posts</small>
         </h1>
         <!-- Blog Post -->
-        <div class="card mb-4" v-for="(post,i) in allPosts.data" :key="post.id">
+        <div class="card mb-4" v-for="(post) in allPosts.data" :key="post.id">
             <img class="card-img-top" :src="imageUrl(post.thumbnail)" alt="Card image cap">
             <div class="card-body">
                 <h2 class="card-title">{{post.title}}</h2>
@@ -47,9 +47,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <ul class="list-unstyled mb-0">
-                            <li v-for="category in categories">
-                                <a href="#">{{category.name}}</a>
+                        <ul v-for="category in categories" :key="category.id" class="list-unstyled mb-0">
+                            <li>
+                                <router-link :to="{name:'categoryShow',params:{id: category.id}}">{{category.name}}</router-link>
                             </li>
                         </ul>
                     </div>
