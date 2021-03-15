@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('site.layouts.app');
 });
 Route::get('/all-posts','SiteController@index');
-
+Route::get('/get-activeCategories','SiteController@showCategories');

@@ -3,11 +3,15 @@ export default {
 
     state:{
         categories: {},
+        activeCategories:{},
         posts:{},
     },
     getters:{
         getCategories(state){
              return state.categories;
+        },
+        getActiveCategories(state){
+             return state.activeCategories;
         },
         getPosts(state){
             return state.posts;
@@ -15,16 +19,20 @@ export default {
     },
     actions:{
         getData(data){
-            let this_ = this;
            axios.get('/get-categories').then(function (response) {
                 // console.log(response.data)
                // this_.categories = response.data.categories;
-               data.commit("categories",response.data)
+               data.commit('categories',response.data)
            })
         },
         getAllPosts(data){
             axios.get('/all-posts').then(function (response) {
                 data.commit('allPosts',response.data)
+            })
+        },
+        getActiveCategories(data){
+            axios.get('/get-activeCategories').then(function (response) {
+                data.commit('activeCategories',response.data)
             })
         }
     },
@@ -34,8 +42,12 @@ export default {
             return state.categories = data;
         },
         allPosts(state,data){
-            console.log(data)
+            // console.log(data)
             return state.posts = data;
+        },
+        activeCategories(state,data){
+            console.log(data)
+            return state.activeCategories = data;
         }
     }
 }
