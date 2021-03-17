@@ -9,7 +9,7 @@
             <img class="card-img-top" :src="imageUrl(post.thumbnail)" alt="Card image cap">
             <div class="card-body">
                 <h2 class="card-title">{{post.title}}</h2>
-                <sometag v-html=post.description></sometag>
+                <p v-html=post.description></p>
                 <a href="#" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
@@ -26,10 +26,10 @@
 
     </div>
     <!-- Sidebar Widgets Column -->
-    <div class="col-md-4">
+    <div class="col-md-4 custom-col">
 
         <!-- Search Widget -->
-        <div class="card my-4">
+        <div class="card">
             <h5 class="card-header">Search</h5>
             <div class="card-body">
                 <div class="input-group">
@@ -50,19 +50,6 @@
                         <ul v-for="category in categories" :key="category.id" class="list-unstyled mb-0">
                             <li>
                                 <router-link :to="{name:'categoryShow',params:{id: category.id}}">{{category.name}}</router-link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#">JavaScript</a>
-                            </li>
-                            <li>
-                                <a href="#">CSS</a>
-                            </li>
-                            <li>
-                                <a href="#">Tutorials</a>
                             </li>
                         </ul>
                     </div>
@@ -114,5 +101,7 @@
 </script>
 
 <style scoped>
-
+.custom-col{
+        margin-top: 94px;
+}
 </style>

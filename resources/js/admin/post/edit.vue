@@ -4,7 +4,7 @@
             <div class="col-md-10">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Edit Post{{this.$route.params.id}}</h3>
+                        <h3 class="card-title">Edit Post {{this.$route.params.id}}</h3>
                     </div>
                     <form @submit.prevent="updatePost()">
                         <div class="card-body">
@@ -17,7 +17,7 @@
                                 <label>Select Category</label>
                                 <select name="category" id="" v-model="form.category_id" class="form-control" :class="{ 'is-invalid': form.errors.has('category') }">
                                     <option value="">Select one</option>
-                                    <option v-for="category in showCategory" :value="category.id">{{category.name}}</option>
+                                    <option v-for="category in showCategory" :key="category.id" :value="category.id">{{category.name}}</option>
                                 </select>
                                 <has-error :form="form" field="category"></has-error>
                             </div>
@@ -67,7 +67,7 @@
             return{
                 form: new Form({
                     title: null,
-                    category_id: null,
+                    category_id: '',
                     description: null,
                     thumbnail: null,
                     status: null,
