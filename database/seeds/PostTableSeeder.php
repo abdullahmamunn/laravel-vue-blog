@@ -12,11 +12,11 @@ class PostTableSeeder extends Seeder
     public function run()
     {
          $faker = Faker\Factory::create();
-         foreach (range(1,20) as $item)
+         foreach (range(1,40) as $item)
          {
              Post::create([
                  "user_id" => rand(1,20),
-                 "category_id" => rand(1,5),
+                 "category_id" => rand(1,10),
                  "title" => $faker->sentence,
                  "description" => $faker->paragraph,
                  "thumbnail" => $faker->imageUrl(),

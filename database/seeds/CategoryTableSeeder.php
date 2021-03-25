@@ -12,7 +12,7 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        foreach (range(1,20) as $item)
+        foreach (range(1,10) as $item)
         {
             $name = $faker->name;
             $slug = Str::slug($name,'-');

@@ -22,6 +22,11 @@ import './helpers/mixin';
 // pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 
+//Lazy loader
+// import VueClazyLoad from 'vue-clazy-load'
+var VueClazyLoad = require('vue-clazy-load');
+Vue.use(VueClazyLoad);
+
 const app = new Vue({
     el: '#app2',
     router,

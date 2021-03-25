@@ -38,7 +38,7 @@
                                 <td v-if="post.category != null">{{post.category.name}}</td>
                                 <td v-else class="text-danger">Not available</td>
                                 <td>{{post.title | subString(10)}}...</td>
-                                <td>{{post.description | subString(10)}}...</td>
+                                <td>{{post.description | subString(15)}}...</td>
                                 <td>
                                     <img :src="imageUrl(post.thumbnail)" height="50" alt="title-image">
                                 </td>

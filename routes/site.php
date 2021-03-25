@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::get('/all-posts','SiteController@index');
 Route::get('/get-activeCategories','SiteController@showCategories');
 Route::get('/category-view/{id}','SiteController@categoryView');
+Route::get('/single-post/{id}','SiteController@singlePostView');

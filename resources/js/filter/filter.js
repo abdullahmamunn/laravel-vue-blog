@@ -22,3 +22,10 @@ Vue.filter('capitalize', function (value) {
         return value.charAt(0).toUpperCase() + value.slice(1)
     }
 });
+
+Vue.filter('striphtml', function (value) {
+    var p = document.createElement("p");
+    p.innerHTML = value;
+    var text = p.textContent || p.innerText || "";
+    return text;
+});

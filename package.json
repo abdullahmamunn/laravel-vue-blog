@@ -33,6 +33,7 @@
         "sweetalert2": "^10.15.5",
         "toastr": "^2.1.4",
         "vform": "^1.0.1",
+        "vue-clazy-load": "^0.4.2",
         "vue-router": "^3.5.1",
         "vuex": "^3.6.2"
     }

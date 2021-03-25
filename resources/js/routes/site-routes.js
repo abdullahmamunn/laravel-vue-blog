@@ -6,6 +6,7 @@ import about from "../site/about";
 import services from "../site/services";
 import contact from "../site/contact";
 import categoryView from "../site/category-view";
+import singlePost from "../site/single-post";
 
 Vue.use(VueRouter);
 export const routes = [
@@ -13,9 +14,8 @@ export const routes = [
     { path: '/about', component: about },
     { path: '/services', component: services },
     { path: '/contact', component: contact },
-    { path: '/category-view/:id', component: categoryView, name:'categoryShow' },
-
-
+    { path: '/category-view/:slug', component: categoryView, name:'categoryShow' },
+    { path: '/single-post/:id', component: singlePost, name:'singlePost'},
 ];
 const router = new VueRouter({
     routes: routes,

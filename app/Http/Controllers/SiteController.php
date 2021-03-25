@@ -11,9 +11,9 @@ class SiteController extends Controller
     public function index()
     {
         $all_posts = Post::with('category','user')
-                         ->Orwhere('status','published')
-                         ->orderBy('created_at','desc')
-                         ->paginate(3);
+            ->Orwhere('status','published')
+            ->orderBy('created_at','desc')
+            ->paginate(3);
         return response()->json($all_posts,200);
     }
     public function showCategories()
@@ -21,16 +21,21 @@ class SiteController extends Controller
         $show_categories = Category::where('status',1)->get();
         return response()->json($show_categories,200);
     }
-    public function categoryView($id)
+    public function categoryView($slug)
     {
-        $category = Category::find($id);
-        // dd($category);
-        // $category = Category::where('id',$id)->first();
+
+        $category = Category::where('slug',$slug)->first();
         $category_wise_post = Post::with('category','user')
-                                ->where('status','published')
-                                ->where('category_id',$category->id)
-                                ->orderBy('created_at','desc')
-                                ->get();
+            ->where('status','published')
+            ->where('category_id',$category->id)
+            ->orderBy('created_at','desc')
+            ->get();
         return response()->json($category_wise_post, 200);
+    }
+
+    public function singlePostView($id)
+    {
+        $single_post = Post::find($id);
+        return $single_post;
     }
 }

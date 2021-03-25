@@ -20,18 +20,19 @@
 </head>
 
 <body>
-<div id="app2">
+<div id="app2" >
 <!-- Navigation -->
 @include('site.layouts.header')
 
 <!-- Page Content -->
-<div class="container">
-    <router-view></router-view>
+<div class="container" style="min-height: 100vh !important">
+  <router-view></router-view>
 </div>
 <!-- /.container -->
-
 @include('site.layouts.footer')
+
 </div>
+
 <!-- Bootstrap core JavaScript -->
 {{--<script src="{{asset('front-end/css/jquery/jquery.min.js')}}"></script>--}}
 {{--<script src="{{asset('front-end/js/bootstrap.bundle.min.js')}}"></script>--}}
