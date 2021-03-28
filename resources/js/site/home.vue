@@ -19,12 +19,15 @@
             </clazy-load>
             <div class="card-body">
                 <h2 class="card-title">{{post.title}}</h2>
+                <b v-if="post.category != null">Category: {{post.category.name}}</b>
+                <b v-else>Category: uncategorize</b>
+                <br>
+                <br>
                 <p>{{post.description | striphtml |subString(300)}}..</p>
 <!--                <router-link :to="{ path: 'home' }">Home</router-link-->
                 <router-link :to="{name:'singlePost',params: {id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
             </div>
             <div class="card-footer custom-footer text-muted">
-                <p>Category: <b>{{post.category.name}}</b></p>
                 <b>Posted on</b> {{post.created_at | time}} by
                 <a href="#">{{post.user.name}}</a>
             </div>

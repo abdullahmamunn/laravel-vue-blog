@@ -4,30 +4,37 @@
             <h1 class="my-4">
                 <small>Category wise view</small>
             </h1>
-            <div class="card mb-4" v-for="(post) in CategoryWisePost" :key="post.id">
-                <clazy-load class="wrapper" :src="imageUrl(post.thumbnail)">
-                    <transition name="fade">
-                        <img :src="imageUrl(post.thumbnail)" alt="Card image cap">
-                    </transition>
-                    <transition name="fade" slot="placeholder">
-                        <div class="preloader">
-                            <div class="circle">
-                                <div class="circle-inner"></div>
-                            </div>
+            <div v-if="CategoryWisePost">
+                    <div class="card mb-4" v-for="(post) in CategoryWisePost" :key="post.id">
+                        <clazy-load class="wrapper" :src="imageUrl(post.thumbnail)">
+                            <transition name="fade">
+                                <img :src="imageUrl(post.thumbnail)" alt="Card image cap">
+                            </transition>
+                            <transition name="fade" slot="placeholder">
+                                <div class="preloader">
+                                    <div class="circle">
+                                        <div class="circle-inner"></div>
+                                    </div>
+                                </div>
+                            </transition>
+                        </clazy-load>
+                        <div class="card-body">
+                            <h2 class="card-title">{{post.title}}</h2>
+                            <b v-if="post.category != null">Category: {{post.category.name}}</b>
+                            <b v-else>Category: uncategorize</b>
+                            <br>
+                            <br>
+                            <p>{{post.description | striphtml |subString(300)}}..</p>
+                            <router-link :to="{name:'singlePost', params:{id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
                         </div>
-                    </transition>
-                </clazy-load>
-                     <div class="card-body">
-                        <h2 class="card-title">{{post.title}}</h2>
-                         <p>{{post.description | striphtml |subString(300)}}..</p>
-                        <router-link :to="{name:'singlePost', params:{id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
+                        <div class="card-footer custom-footer text-muted">
+                            <b>Posted on</b> {{post.created_at | time}} by
+                            <a href="#">{{post.user.name}}</a>
+                        </div>
                     </div>
-                   <div class="card-footer custom-footer text-muted">
-                       <p>Category: <b>{{post.category.name}}</b></p>
-                       <b>Posted on</b> {{post.created_at | time}} by
-                       <a href="#">{{post.user.name}}</a>
-                   </div>
             </div>
+        </div>
+
         </div>
         <div class="col-md-4 custom-col">
             <div class="card my-4">

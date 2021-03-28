@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         <h1 class="card-title">Categories</h1>
                         <div class="card-tools">
-                           <router-link to="/add-new" class="btn btn-primary">Add Category</router-link>
+                           <router-link to="/add-new" class="btn btn-dark text-light">Add Category</router-link>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -18,7 +18,6 @@
                                     <input :disabled="tableEmpty()" type="checkbox" @click="selectAll" v-model="selectedAll">
                                 </th>
                                 <th style="width: 10px">SL</th>
-                                <th>id</th>
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Description</th>
@@ -33,7 +32,6 @@
                                     <input type="checkbox" :value="category.id" v-model="selected">
                                 </th>
                                 <td>{{++i}}</td>
-                                <td>{{category.id}}</td>
                                 <td>{{category.name}}</td>
                                 <td>{{category.slug}}</td>
                                 <td>{{category.description | subString(10)}}...</td>

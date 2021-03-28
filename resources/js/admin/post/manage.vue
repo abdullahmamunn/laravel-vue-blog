@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         <h1 class="card-title">Manage Posts</h1>
                         <div class="card-tools">
-                           <router-link to="/create-post" class="btn btn-primary">Add new post</router-link>
+                           <router-link to="/create-post" class="btn btn-dark text-light">Add new post</router-link>
                         </div>
                     </div>
                     <!-- /.card-header -->
