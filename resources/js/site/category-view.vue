@@ -4,47 +4,48 @@
             <h1 class="my-4">
                 <small>Category wise view</small>
             </h1>
-            <div v-if="CategoryWisePost">
-                    <div class="card mb-4" v-for="(post) in CategoryWisePost" :key="post.id">
-                        <clazy-load class="wrapper" :src="imageUrl(post.thumbnail)">
-                            <transition name="fade">
-                                <img :src="imageUrl(post.thumbnail)" alt="Card image cap">
-                            </transition>
-                            <transition name="fade" slot="placeholder">
-                                <div class="preloader">
-                                    <div class="circle">
-                                        <div class="circle-inner"></div>
-                                    </div>
-                                </div>
-                            </transition>
-                        </clazy-load>
-                        <div class="card-body">
-                            <h2 class="card-title">{{post.title}}</h2>
-                            <b v-if="post.category != null">Category: {{post.category.name}}</b>
-                            <b v-else>Category: uncategorize</b>
-                            <br>
-                            <br>
-                            <p>{{post.description | striphtml |subString(300)}}..</p>
-                            <router-link :to="{name:'singlePost', params:{id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
-                        </div>
-                        <div class="card-footer custom-footer text-muted">
-                            <b>Posted on</b> {{post.created_at | time}} by
-                            <a href="#">{{post.user.name}}</a>
-                        </div>
-                    </div>
+           <div v-if="CategoryWisePost!=null">
+               <div class="card mb-4" v-for="(post) in CategoryWisePost" :key="post.id">
+                   <clazy-load class="wrapper" :src="imageUrl(post.thumbnail)">
+                       <transition name="fade">
+                           <img :src="imageUrl(post.thumbnail)" alt="Card image cap">
+                       </transition>
+                       <transition name="fade" slot="placeholder">
+                           <div class="preloader">
+                               <div class="circle">
+                                   <div class="circle-inner"></div>
+                               </div>
+                           </div>
+                       </transition>
+                   </clazy-load>
+                   <div class="card-body">
+                       <h2 class="card-title">{{post.title}}</h2>
+                       <b v-if="post.category != null">Category: {{post.category.name}}</b>
+                       <b v-else>Category: uncategorize</b>
+                       <br>
+                       <br>
+                       <p>{{post.description | striphtml |subString(300)}}..</p>
+                       <router-link :to="{name:'singlePost', params:{id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
+                   </div>
+                   <div class="card-footer custom-footer text-muted">
+                       <b>Posted on</b> {{post.created_at | time}} by
+                       <a href="#">{{post.user.name}}</a>
+                   </div>
+               </div>
+           </div>
+            <div v-else-if="CategoryWisePost == null">
+                <h2>{{CategoryWisePost}}</h2>
             </div>
-        </div>
 
         </div>
         <div class="col-md-4 custom-col">
-            <div class="card my-4">
-                <h5 class="card-header bg-dark text-light">Recent Posts</h5>
-                <div class="card-body">
-                    You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                <div class="card my-4">
+                    <h5 class="card-header bg-dark text-light">Recent Posts</h5>
+                    <div class="card-body">
+                        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                    </div>
                 </div>
-            </div>
         </div>
-
     </div>
 </template>
 

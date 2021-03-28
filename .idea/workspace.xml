@@ -3,15 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5fc1692d-7cda-45a5-8f69-5419622882a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front-end/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front-end/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/admin-lte/plugins/fontawesome-free/webfa-solid-900.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/popper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/categories/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/categories/manage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin/post/manage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/site/category-view.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/category-view.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/site/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/site/home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,6 +249,7 @@
       <workItem from="1616671943960" duration="1658000" />
       <workItem from="1616900682235" duration="3921000" />
       <workItem from="1616906139350" duration="5130000" />
+      <workItem from="1616943964440" duration="3122000" />
     </task>
     <servers />
   </component>
