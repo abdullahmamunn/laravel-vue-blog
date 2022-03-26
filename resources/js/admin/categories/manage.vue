@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-dark">
                         <h1 class="card-title">Categories</h1>
@@ -34,7 +34,7 @@
                                 <td>{{++i}}</td>
                                 <td>{{category.name}}</td>
                                 <td>{{category.slug}}</td>
-                                <td>{{category.description | subString(10)}}...</td>
+                                <td :title="category.description">{{category.description | subString(10)}}...</td>
                                 <td>
                                     {{category.created_at | time}}
                                 </td>

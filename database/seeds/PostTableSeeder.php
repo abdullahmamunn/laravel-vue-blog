@@ -18,6 +18,7 @@ class PostTableSeeder extends Seeder
                  "user_id" => rand(1,20),
                  "category_id" => rand(1,10),
                  "title" => $faker->sentence,
+                 "slug" => Str::slug($faker->sentence),
                  "description" => $faker->paragraph,
                  "thumbnail" => $faker->imageUrl(),
                  "status" => $this->getStatus()

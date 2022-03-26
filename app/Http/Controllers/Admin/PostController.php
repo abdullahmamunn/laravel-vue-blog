@@ -48,11 +48,12 @@ class PostController extends Controller
             'user_id'=>Auth()->user()->id,
             'status' => $request->status,
             'title' => $request->title,
+            'slug' => $slug,
             'thumbnail'=>$image_name
 
         ]);
 
-        Image::make($request->thumbnail)->resize(700, 250)->save(public_path('uploads/posts/') . $image_name);
+        Image::make($request->thumbnail)->save(public_path('uploads/posts/') . $image_name);
 
         return response()->json(['message'=>'Post created'],200);
 
@@ -86,7 +87,8 @@ class PostController extends Controller
             $slug = Str::slug($request->title);
             $image_name = $slug.'.'.$img_ex;
             $post->thumbnail = $image_name;
-            Image::make($request->thumbnail)->resize(700, 250)->save(public_path('uploads/posts/') . $image_name);
+            // Image::make($request->thumbnail)->resize(700, 250)->save(public_path('uploads/posts/') . $image_name);
+            Image::make($request->thumbnail)->save(public_path('uploads/posts/') . $image_name);
         }
         $post->save();
          return response()->json(['message'=>'Post updated'],200);

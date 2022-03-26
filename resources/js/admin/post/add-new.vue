@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Create New Post</h3>
@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group">
                                 <label >Description</label>
-                                <ckeditor :editor="editor" v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }"></ckeditor>
+                                <ckeditor :editor="editor" v-model="form.description" :config="editorConfig" name="description" :class="{ 'is-invalid': form.errors.has('description') }"></ckeditor>
                                 <has-error :form="form" field="description"></has-error>
                             </div>
                             <div class="form-group">
@@ -70,10 +70,10 @@
                     description: null,
                     thumbnail: null,
                     status: null,
-                }),
+                }),     
                     editor: ClassicEditor,
                     editorConfig: {
-                        // The configuration of the editor.
+                            // The configuration of the editor.
                     }
             }
         },
