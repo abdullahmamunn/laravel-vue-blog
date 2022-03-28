@@ -163,7 +163,7 @@
             getResults(page = 1) {
                 axios.get('/categories?page=' + page)
                     .then(response => {
-                        // toastr.success('welcome to '+page+' page');
+                        toastr.success('welcome to '+page+' page');
                         this.categories = response.data;
                     });
             },
