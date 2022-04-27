@@ -5,4 +5,11 @@
  */
 body {
   padding-top: 56px;
+  background: #b1cae3;
+  padding: 30px 0px 30px 0px;
+  position: relative;
+  background-image: url(../bg1.png);
+  /* background-image: url(../body-bg-stripes.jpg); */
+  background-attachment: fixed;
+  background-position: 32% 64px;
 }

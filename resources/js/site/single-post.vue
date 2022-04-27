@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-md-8">
             <h1 class="my-4">
-                <small>Single Post view {{this.$route.params.id}}</small>
+                <!-- <small>Single Post view {{this.$route.params.id}}</small> -->
+                <small>Single Post view</small>
             </h1>
             <div class="card mb-4">
                 <div class="card-header bg-dark text-light">
