@@ -22,7 +22,7 @@
         <div class="inner">
           <h3>Total Categories<sup style="font-size: 20px"></sup></h3>
 
-          <p>{{ totalCategories }}</p>
+          <h4>{{ totalCategory }}</h4>
         </div>
         <div class="icon">
           <i class="ion ion-stats-bars"></i>
@@ -38,7 +38,7 @@
       <div class="small-box bg-warning">
         <div class="inner">
           <h3>Total Posts</h3>
-          <p>{{ totalPosts }}</p>
+          <h4>{{ totalPosts }}</h4>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
@@ -75,10 +75,23 @@ export default {
       return {
           totalusers: 0,
           totalCategories: 0,
-          totalPosts: 0,
           TodaysPosts: 0,
       }
-  }
+  },
+    mounted() {
+        // Fetch initial results
+        this.$store.dispatch('getData');
+        this.$store.dispatch('getAllPosts');
+        // this.getResults();
+    },
+    computed:{
+        totalCategory(){
+            return this.$store.getters.getCategories.length
+        },
+        totalPosts(){
+            return this.$store.getters.getPosts.total
+        }
+    },
 };
 </script>
 

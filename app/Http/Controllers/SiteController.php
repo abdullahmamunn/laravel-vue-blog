@@ -13,7 +13,7 @@ class SiteController extends Controller
         $all_posts = Post::with('category','user')
             ->Orwhere('status','published')
             ->orderBy('created_at','desc')
-            ->paginate(3);
+            ->paginate(4);
         return response()->json($all_posts,200);
     }
     public function showCategories()
@@ -37,5 +37,10 @@ class SiteController extends Controller
     {
         $single_post = Post::find($id);
         return $single_post;
+    }
+    public function recentPostView($slug)
+    {
+         $data = Post::where('slug',$slug)->first();
+         return $data;
     }
 }

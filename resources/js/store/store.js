@@ -5,6 +5,7 @@ export default {
         categories: {},
         activeCategories:{},
         posts:{},
+        totalCategories: 0
     },
     getters:{
         getCategories(state){
@@ -20,13 +21,14 @@ export default {
     actions:{
         getData(data){
            axios.get('/get-categories').then(function (response) {
-                // console.log(response.data)
+                // console.log(response.data.length)
                // this_.categories = response.data.categories;
                data.commit('categories',response.data)
            })
         },
         getAllPosts(data){
             axios.get('/all-posts').then(function (response) {
+                // console.log(response.data)
                 data.commit('allPosts',response.data)
             })
         },
@@ -46,7 +48,7 @@ export default {
             return state.posts = data;
         },
         activeCategories(state,data){
-            console.log(data)
+            // console.log(data)
             return state.activeCategories = data;
         }
     }

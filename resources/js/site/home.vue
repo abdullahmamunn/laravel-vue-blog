@@ -7,7 +7,7 @@
         <div class="card mb-4" v-for="post in allPosts.data" :key="post.id">
             <clazy-load class="wrapper" @load="log" :src="imageUrl(post.thumbnail)">
                 <transition name="fade">
-                    <img :src="imageUrl(post.thumbnail)" alt="Card image cap">
+                    <img :src="imageUrl(post.thumbnail)" class="img-fluid" alt="Card image cap">
                 </transition>
                 <transition name="fade" slot="placeholder">
                     <div class="preloader">
@@ -24,7 +24,7 @@
                 <br>
                 <br>
                 <p>{{post.description | striphtml |subString(300)}}..</p>
-<!--                <router-link :to="{ path: 'home' }">Home</router-link-->
+               <!-- <router-link :to="{ path: 'about' }">Home</router-link> -->
                 <router-link :to="{name:'singlePost',params: {id:post.id}}" class="btn btn-dark float-right">Read More &rarr;</router-link>
             </div>
             <div class="card-footer custom-footer text-muted">
@@ -73,9 +73,14 @@
 
         <!-- Side Widget -->
         <div class="card my-4">
-            <h5 class="card-header bg-dark text-light">Side Widget</h5>
+            <h5 class="card-header bg-dark text-light">Recent Post</h5>
             <div class="card-body">
-                You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                <ul v-for="recent in allPosts.data" :key="recent.id" class="list-unstyled custom-ul-a mb-0">
+                    <li class="text-dark">
+                        <router-link :to="{name:'recentPost',params:{slug:recent.slug}}">{{recent.title}}</router-link>
+                    </li>
+                </ul>
+                 <router-link :to="{ path: 'view-all-posts' }">View All Post</router-link>
             </div>
         </div>
 
@@ -115,6 +120,7 @@
             getResults(page = 1) {
                 axios.get('/all-posts?page=' + page)
                     .then(response => {
+                        // console.log(response)
                         // toastr.success('welcome to '+page+' page');
                         this.allPosts = response.data;
                     });

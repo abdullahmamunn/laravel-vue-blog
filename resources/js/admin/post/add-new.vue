@@ -59,6 +59,8 @@
 <script>
     import categories from "./manage";
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+    import { VueEditor } from "vue2-editor";
+
     const Swal = require('sweetalert2')
     export default {
         name: "add-new",
@@ -70,7 +72,7 @@
                     description: null,
                     thumbnail: null,
                     status: null,
-                }),     
+                }),
                     editor: ClassicEditor,
                     editorConfig: {
                             // The configuration of the editor.

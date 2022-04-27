@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index()
     {
 //        return Category::paginate(3);
-        return Category::latest()->paginate(5);
+          return Category::latest()->paginate(5);
 //        return response()->json(['categories'=>$categories],200);
     }
 
