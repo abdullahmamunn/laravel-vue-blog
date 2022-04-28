@@ -15,7 +15,7 @@
                         <img :src="imageUrl(singlePost.thumbnail)" class="img-fluid" alt="">
                     </div>
                     <p v-html="singlePost.description"></p>
-                    <!-- <p>{{ singlePost.description }}</p> -->
+                    <!-- <p>{! singlePost.description !}</p> -->
                 </div>
             </div>
         </div>
