@@ -80,6 +80,9 @@ Vue.component('pagination', require('laravel-vue-pagination'));
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import VueEditor from 'vue2-editor'
+Vue.use(VueEditor)
+
 const app = new Vue({
     el: '#app',
     router,

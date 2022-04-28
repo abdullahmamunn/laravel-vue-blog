@@ -29,7 +29,7 @@
   <router-view></router-view>
 </div>
 <!-- /.container -->
-@include('site.layouts.footer')
+{{-- @include('site.layouts.footer') --}}
 
 </div>
 

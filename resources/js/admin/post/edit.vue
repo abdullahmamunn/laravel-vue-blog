@@ -21,10 +21,14 @@
                                 </select>
                                 <has-error :form="form" field="category"></has-error>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label >Description</label>
                                 <ckeditor :editor="editor" v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }"></ckeditor>
                                 <has-error :form="form" field="description"></has-error>
+                            </div> -->
+                            <div class="form-group">
+                                 <label >Description</label>
+                                <vue-editor v-model="form.description"></vue-editor>
                             </div>
                             <div class="form-group">
                                 <label for="">Thumbnail</label>
@@ -59,8 +63,6 @@
 
 <script>
 
-    import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
     const Swal = require('sweetalert2')
     export default {
         data(){
@@ -72,10 +74,6 @@
                     thumbnail: null,
                     status: null,
                 }),
-                editor: ClassicEditor,
-                editorConfig: {
-                    // The configuration of the editor.
-                }
             }
         },
         mounted() {
