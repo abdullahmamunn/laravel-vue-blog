@@ -33,9 +33,11 @@
                    </div>
                </div>
            </div>
-            <div v-else-if="CategoryWisePost == null">
-                <h2>{{CategoryWisePost}}</h2>
-            </div>
+           <div else>
+               <div class="card">
+                 <h1 style="margin-top:250px; text-align:center;width:70%;">Categorywise Data Not Found!</h1>
+               </div>
+           </div>
 
         </div>
         <div class="col-md-4 custom-col">

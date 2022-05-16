@@ -33,17 +33,22 @@ class PostController extends Controller
         $request->validate([
             'title'=>'required|max:100',
             'description'=>'required',
-            'category_id'=>'required',
+            'category'=>'required',
             'status'=>'required'
         ]);
-        $x = explode(';',$request->thumbnail);
-        $xx = explode('/',$x[0]);
-        $img_ex = end($xx);
+        
         $slug = Str::slug($request->title);
-        $image_name = $slug.'.'.$img_ex;
+        $image_name = 'def.png';
+        if(!is_null($request->thumbnail)){
+            $x = explode(';',$request->thumbnail);
+            $xx = explode('/',$x[0]);
+            $img_ex = end($xx);
+            $image_name = $slug.'.'.$img_ex;
+            Image::make($request->thumbnail)->save(public_path('uploads/posts/') . $image_name);
+        }
 
         Post::create([
-            'category_id'=>$request->category_id,
+            'category_id'=>$request->category,
             'description' => $request->description,
             'user_id'=>Auth()->user()->id,
             'status' => $request->status,
@@ -53,7 +58,6 @@ class PostController extends Controller
 
         ]);
 
-        Image::make($request->thumbnail)->save(public_path('uploads/posts/') . $image_name);
 
         return response()->json(['message'=>'Post created'],200);
 

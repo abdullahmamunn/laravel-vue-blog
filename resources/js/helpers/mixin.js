@@ -15,7 +15,7 @@ Vue.mixin({
             })
         },
         imageUrl(url){
-            if(url!=null && url.length> 255)
+            if(url!=null && url.length > 255)
             {
                 console.log(url.length)
                 return this.form.thumbnail;

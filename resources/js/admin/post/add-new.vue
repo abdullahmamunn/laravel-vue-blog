@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Select Category</label>
-                                <select name="category" id="" v-model="form.category_id" class="form-control" :class="{ 'is-invalid': form.errors.has('category') }">
+                                <select name="category" id="" v-model="form.category" class="form-control" :class="{ 'is-invalid': form.errors.has('category') }">
                                     <option value="">Select one</option>
                                     <option v-for="category in showCategory" :value="category.id">{{category.name}}</option>
                                 </select>
@@ -28,7 +28,8 @@
                             </div> -->
                             <div class="form-group">
                                  <label >Description</label>
-                                <vue-editor v-model="form.description"></vue-editor>
+                                <vue-editor v-model="form.description" :class="{ 'is-invalid': form.errors.has('description') }"></vue-editor>
+                                <has-error :form="form" field="description"></has-error>
                             </div>
                             <div class="form-group">
                                 <label for="">Thumbnail</label>
@@ -38,11 +39,11 @@
                             <div class="form-group">
                                 <label class="col-form-label mr-3">Status</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="active" value="published" v-model="form.status" name="status">
+                                    <input class="form-check-input" type="radio" id="active" value="published" v-model="form.status" name="status" :class="{ 'is-invalid': form.errors.has('status') }">
                                     <label class="form-check-label" for="">Active</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="inActive" value="draft" v-model="form.status">
+                                    <input class="form-check-input" type="radio" id="inActive" value="draft" v-model="form.status" :class="{ 'is-invalid': form.errors.has('status') }">
                                     <label class="form-check-label" for="">InActive</label>
                                 </div>
                                 <has-error :form="form" field="status"></has-error>
@@ -71,7 +72,7 @@
             return{
                 form: new Form({
                     title: null,
-                    category_id: null,
+                    category: null,
                     description: null,
                     thumbnail: null,
                     status: null,

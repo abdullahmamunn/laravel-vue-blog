@@ -9,11 +9,8 @@
                     <div class="col-12">
                         <div class="card-body text-justify">
                             I am a talented, ambitious and hardworking individual, with broad skills and experience in digital and printed marketing, social media and leading projects.
-
                             Furthermore, I am adept at handling multiple tasks on a daily basis competently and at working well under pressure.
-
                             A key strength is communication; building strong relationships with people in order to deliver the best results.
-
                             Recently, I completed an Open degree, including Business and Design modules at the Open University and I am now fully employed by Clearly Presented as a Digital Media Manager.
                         </div>
                     </div>
@@ -22,14 +19,14 @@
                          <h2>Skills</h2>
                          <h5>Professional Experience</h5>
                         <span>I am professional on these Technologies. Most of the time I work on these</span><br>
-                        <span class="badge badge-primary">Primary</span>
-                        <span class="badge badge-secondary">Secondary</span>
-                        <span class="badge badge-success">Success</span>
-                        <span class="badge badge-danger">Danger</span>
-                        <span class="badge badge-warning">Warning</span>
-                        <span class="badge badge-info">Info</span>
-                        <span class="badge badge-light">Light</span>
-                        <span class="badge badge-dark">Dark</span>
+                        <span class="badge badge-dark">PHP</span>
+                        <span class="badge badge-dark">Laravel</span>
+                        <span class="badge badge-dark">Vue Js</span>
+                        <span class="badge badge-dark">jQuery</span>
+                        <span class="badge badge-dark">Javascript</span>
+                        <span class="badge badge-dark">MySql</span>
+                        <span class="badge badge-dark">API</span>
+                        <span class="badge badge-dark">Docker</span>
                         <br>
                         <br>
                         <br>

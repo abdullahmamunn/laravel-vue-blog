@@ -30,7 +30,10 @@ class SiteController extends Controller
             ->where('category_id',$category->id)
             ->orderBy('created_at','desc')
             ->get();
-        return response()->json($category_wise_post, 200);
+        if($category_wise_post){
+            return response()->json($category_wise_post, 200);
+        }
+        return response()->json(['message'=>'No Data Found!'], 200);
     }
 
     public function singlePostView($id)
